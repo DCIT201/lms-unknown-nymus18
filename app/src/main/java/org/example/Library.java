@@ -1,101 +1,84 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.List;
-public class Library {
-    private String libraryName;
+
+public class Library{
+    private String name;
     private String address;
-    private List<String> books;
-    private List<String> patrons;
+    private List<Book> books;
+    private List<Patron> patrons;
 
-    // Constructor
-    public Library(String libraryName, String address) {
-        this.libraryName = libraryName;
-        this.address = address;
-        this.books = new ArrayList<>();
-        this.patrons = new ArrayList<>();
+    Library(String name, String address){
+        this.name = name;
+        this. address = address;
+        this.books = new ArrayList<Book>();
+        this.patrons = new ArrayList<Patron>();
     }
 
-    // Getters and Setters
-    public String getLibraryName() {
-        return libraryName;
+
+    public void setName(String name){
+        this.name = name;
     }
 
-    public void setLibraryName(String libraryName) {
-        this.libraryName = libraryName;
+    public String getName(){
+        return this.name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
+    public void setAddress(String address){
         this.address = address;
     }
 
-    public List<String> getBooks() {
-        return books;
+    public String getAddress(){
+        return this.address;
     }
 
-    public List<String> getPatrons() {
-        return patrons;
-    }
-
-    // Methods to manage books
-    public void addBook(String book) {
-        books.add(book);
-        System.out.println("Book added to the library: " + book);
-    }
-
-    public void removeBook(String book) {
-        if (books.remove(book)) {
-            System.out.println("Book removed from the library: " + book);
-        } else {
-            System.out.println("Book not found in the library: " + book);
+    public void addBook(Book book){
+        if(this.books.add(book)){
+            System.out.println(book.getTitle()+" has been added library");
+        }
+        else{
+            System.out.println(book.getTitle() +" was not added to library");
         }
     }
 
-    // Methods to manage patrons
-    public void addPatron(String patron) {
-        patrons.add(patron);
-        System.out.println("Patron added: " + patron);
-    }
-
-    public void removePatron(String patron) {
-        if (patrons.remove(patron)) {
-            System.out.println("Patron removed: " + patron);
-        } else {
-            System.out.println("Patron not found: " + patron);
+    public void removeBook(Book book){
+        if(this.books.contains(book)){
+            this.books.remove(book);
+            System.out.println(book.getTitle()+" has been removed from library");
+        }
+        else{
+            System.out.println(book.getTitle()+" is not in the library");
         }
     }
 
-    public void listBooks() {
-        if (books.isEmpty()) {
-            System.out.println("No books available in the library.");
-        } else {
-            System.out.println("Books in the library:");
-            for (String book : books) {
-                System.out.println("- " + book);
-            }
+    public void addPatron(Patron patron){
+        if(this.patrons.add(patron)){
+            System.out.println(patron.getName()+" has subscribed to the library");
+        }
+        else{
+            System.out.println(patron.getName()+" could not be added to library subscription");
         }
     }
 
-    public void listPatrons() {
-        if (patrons.isEmpty()) {
-            System.out.println("No patrons registered in the library.");
-        } else {
-            System.out.println("Registered patrons:");
-            for (String patron : patrons) {
-                System.out.println("- " + patron);
-            }
+    public void displayBooks(){
+        for(Book book:books){
+            System.out.println("Title: "+book.getTitle()+ ", Author: "+book.getAuthor()+", Publication year: "+ book.getYearPublished());
         }
     }
 
-    // Display library details
-    public void displayLibraryDetails() {
-        System.out.println("Library Name: " + libraryName);
-        System.out.println("Address: " + address);
-        System.out.println("Number of Books: " + books.size());
-        System.out.println("Number of Patrons: " + patrons.size());
+    public void displayPatronDetails(){
+        for(Patron patron:patrons){
+            System.out.println("Name: "+patron.getName()+ ", Id: "+patron.getPatronId());
+        }
     }
+
+    public void displayLibraryDetails(){
+        System.out.println("Name: "+ this.getName());
+        System.out.println("Address: "+this.getAddress());
+        this.displayBooks();
+        this.displayPatronDetails();
+        this.displayLibraryDetails();
+    }
+
 
 }
