@@ -1,9 +1,10 @@
-package org.example;
+import java.util.ArrayList;
+import java.util.List;
 public class Library {
     private String libraryName;
     private String address;
-    private List<Book> books;
-    private List<Patron> patrons;
+    private List<String> books;
+    private List<String> patrons;
 
     // Constructor
     public Library(String libraryName, String address) {
@@ -30,39 +31,39 @@ public class Library {
         this.address = address;
     }
 
-    public List<Book> getBooks() {
+    public List<String> getBooks() {
         return books;
     }
 
-    public List<Patron> getPatrons() {
+    public List<String> getPatrons() {
         return patrons;
     }
 
     // Methods to manage books
-    public void addBook(Book book) {
+    public void addBook(String book) {
         books.add(book);
-        System.out.println("Book added to the library: " + book.getTitle());
+        System.out.println("Book added to the library: " + book);
     }
 
-    public void removeBook(Book book) {
+    public void removeBook(String book) {
         if (books.remove(book)) {
-            System.out.println("Book removed from the library: " + book.getTitle());
+            System.out.println("Book removed from the library: " + book);
         } else {
-            System.out.println("Book not found in the library: " + book.getTitle());
+            System.out.println("Book not found in the library: " + book);
         }
     }
 
     // Methods to manage patrons
-    public void addPatron(Patron patron) {
+    public void addPatron(String patron) {
         patrons.add(patron);
-        System.out.println("Patron added: " + patron.getName());
+        System.out.println("Patron added: " + patron);
     }
 
-    public void removePatron(Patron patron) {
+    public void removePatron(String patron) {
         if (patrons.remove(patron)) {
-            System.out.println("Patron removed: " + patron.getName());
+            System.out.println("Patron removed: " + patron);
         } else {
-            System.out.println("Patron not found: " + patron.getName());
+            System.out.println("Patron not found: " + patron);
         }
     }
 
@@ -71,8 +72,8 @@ public class Library {
             System.out.println("No books available in the library.");
         } else {
             System.out.println("Books in the library:");
-            for (Book book : books) {
-                System.out.println("- " + book.getTitle());
+            for (String book : books) {
+                System.out.println("- " + book);
             }
         }
     }
@@ -82,8 +83,8 @@ public class Library {
             System.out.println("No patrons registered in the library.");
         } else {
             System.out.println("Registered patrons:");
-            for (Patron patron : patrons) {
-                System.out.println("- " + patron.getName());
+            for (String patron : patrons) {
+                System.out.println("- " + patron);
             }
         }
     }
@@ -95,4 +96,6 @@ public class Library {
         System.out.println("Number of Books: " + books.size());
         System.out.println("Number of Patrons: " + patrons.size());
     }
+
+
 }
