@@ -52,10 +52,10 @@ public class Patron {
 
     public void borrowBoox(Book book){
         if(borrowedBooks.add(book)){
-            System.out.println(book.getName() + " has been borrowed.");
+            System.out.println(book.getTitle() + " has been borrowed.");
         }
         else{
-            System.out.println(book.getName()+" was not borrowed");
+            System.out.println(book.getTitle()+" was not borrowed");
         }
     }
 
@@ -63,7 +63,7 @@ public class Patron {
         if (borrowedBooks.remove(book)) {
             System.out.println(name + " returned the book: " + book.getName());
         } else {
-            System.out.println(name + " does not have the book: " + book.getName());
+            System.out.println(name + " does not have the book: " + book.getTitle());
         }
     }
 
