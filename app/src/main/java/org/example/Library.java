@@ -1,2 +1,2 @@
-import org.example;
+package org.example;
 public class Library{}
