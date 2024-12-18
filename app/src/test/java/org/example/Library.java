@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+
 public class Library {
     private String libraryName;
     private String address;
@@ -12,6 +13,14 @@ public class Library {
         this.address = address;
         this.books = new ArrayList<>();
         this.patrons = new ArrayList<>();
+    }
+
+    // Overloaded Constructor
+    public Library(String libraryName, String address, List<String> books, List<String> patrons) {
+        this.libraryName = libraryName;
+        this.address = address;
+        this.books = new ArrayList<>(books);
+        this.patrons = new ArrayList<>(patrons);
     }
 
     // Getters and Setters
@@ -50,6 +59,7 @@ public class Library {
             System.out.println("Book removed from the library: " + book);
         } else {
             System.out.println("Book not found in the library: " + book);
+            displayBooks();
         }
     }
 
@@ -64,10 +74,11 @@ public class Library {
             System.out.println("Patron removed: " + patron);
         } else {
             System.out.println("Patron not found: " + patron);
+            displayPatrons();
         }
     }
 
-    public void listBooks() {
+    public void displayBooks() {
         if (books.isEmpty()) {
             System.out.println("No books available in the library.");
         } else {
@@ -78,7 +89,7 @@ public class Library {
         }
     }
 
-    public void listPatrons() {
+    public void displayPatrons() {
         if (patrons.isEmpty()) {
             System.out.println("No patrons registered in the library.");
         } else {
@@ -97,5 +108,27 @@ public class Library {
         System.out.println("Number of Patrons: " + patrons.size());
     }
 
+    // Main Method (for testing purposes)
+    public static void main(String[] args) {
+        Library library = new Library("City Library", "123 Main Street");
 
+        // Add books and patrons
+        library.addBook("1984");
+        library.addBook("To Kill a Mockingbird");
+        library.addPatron("Alice");
+        library.addPatron("Bob");
+
+        // Display details
+        library.displayLibraryDetails();
+        library.displayBooks();
+        library.displayPatrons();
+
+        // Remove a book and a patron
+        library.removeBook("1984");
+        library.removePatron("Alice");
+
+        // Display updated details
+        library.displayBooks();
+        library.displayPatrons();
+    }
 }
