@@ -77,7 +77,6 @@ public class Library{
         System.out.println("Address: "+this.getAddress());
         this.displayBooks();
         this.displayPatronDetails();
-        this.displayLibraryDetails();
     }
 
 
