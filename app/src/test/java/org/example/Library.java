@@ -38,28 +38,18 @@ public class Library {
     // Methods to manage books
     public void addBook(Book book) {
         books.add(book);
-        System.out.println(book.getName() + " has been added to the library.");
+        System.out.println("Book has been added to the library.");
     }
 
     public void removeBook(Book book){
         if(books.remove(book)){
-            System.out.println(book.getName()+" has been removed from library.");
+            System.out.println("Could not remove book");
         }
         else{
-            System.out.println(book.getName()+" is not found in the library");
+            System.out.println("Could not remove book.");
         }
     }
 
-    public void listBooks() {
-        if (books.isEmpty()) {
-            System.out.println("No books available in the library.");
-        } else {
-            System.out.println("Books in the library:");
-            for (Book book : books) {
-                System.out.println("- " + book.getName());
-            }
-        }
-    }
     // Methods to manage patrons
     public void addPatron(Patron patron) {
         patrons.add(patron);
