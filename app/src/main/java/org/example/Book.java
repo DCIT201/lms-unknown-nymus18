@@ -1,31 +1,65 @@
 package org.example;
+
 public class Book {
+    //Initializing Variables
     private String title;
     private String author;
     private int yearPublished;
-    
-    public Book(String title, String author, int yearPublished){
+    private boolean isBorrowed = false;
+
+    //Constructor Function
+    public Book(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
     }
 
+    //Title Getter and Setter
+    public String getTitle() {
+        return title;
+    }
 
-    // Getters and setters
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getTitle(){
-        return this.title;
+    //Author Getter and Setter
+    public String getAuthor() {
+        return author;
     }
 
-
-    public void displayBookDetails(){
-        System.out.println("The title of the book is " + title);
-        System.out.println("The author of the book is " + author);
-        System.out.println("The year the book was published is " + yearPublished);
+    public void setAuthor(String author) {
+        this.author = author;
     }
-    
-    
+
+    //YearPublished Getter and Setter
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    //isBorrowed getter and setter
+    public boolean getIsBorrowed() {
+    return isBorrowed;
+}
+
+    public void setIsBorrowed() {
+    isBorrowed = !isBorrowed;
+}
+
+
+    //Method to return a book
+    public boolean returnBook() {
+        if (!isBorrowed) {
+            System.out.println("This book is not borrowed");
+            return false;
+        } else {
+            System.out.println("This book has been returned");
+            isBorrowed = false;
+            return true;
+        }
+    }
 }
