@@ -34,10 +34,10 @@ public class Library{
 
     public void addBook(Book book){
         if(this.books.add(book)){
-            System.out.println(book.getTitle()+" has been added library");
+            System.out.println(book.getTitle()+" has been added to the library");
         }
         else{
-            System.out.println(book.getTitle() +" was not added to library");
+            System.out.println(book.getTitle() +" was not added to the library");
         }
     }
 
