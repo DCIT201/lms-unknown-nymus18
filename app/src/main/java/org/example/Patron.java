@@ -61,7 +61,7 @@ public class Patron {
 
     public void returnBook(Book book) {
         if (borrowedBooks.remove(book)) {
-            System.out.println(name + " returned the book: " + book.getName());
+            System.out.println(name + " returned the book: " + book.getTitle());
         } else {
             System.out.println(name + " does not have the book: " + book.getTitle());
         }
@@ -73,7 +73,7 @@ public class Patron {
         } else {
             System.out.println(name + " has borrowed the following books:");
             for (Book book : borrowedBooks) {
-                System.out.println("- " + book.getName());
+                System.out.println("- " + book.getTitle());
             }
         }
     }
