@@ -1,5 +1,6 @@
 package org.example;
 import java.util.List;
+import java.util.ArrayList;
 public class Library {
     private String libraryName;
     private String address;
@@ -10,6 +11,8 @@ public class Library {
     public Library(String libraryName, String address){
         this.libraryName = libraryName;
         this.address = address;
+        this.books = new ArrayList<Book>();
+        this.patrons = new ArrayList<Patron>();
     }
 
     // Getters and Setters for the fields
